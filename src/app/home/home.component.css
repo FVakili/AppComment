@@ -1,0 +1,15 @@
+.divFormats{
+  width: 400px;
+  margin: 2em;
+}
+
+.commentP{
+  clear: both;
+}
+.starFormat{
+  float: left;
+}
+
+.likeSection{
+  float: right;
+}

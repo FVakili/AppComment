@@ -1,0 +1,32 @@
+<div class="divFormats">
+  <label for="comment"> Comment: </label>
+  <textarea #commentText name="Comment" class="form-control"> Type your comment.... #define local refrence </textarea>
+  <button (click)="addComment()" style="margin-top: 1em" class="btn btn-primary">Add Comment</button>
+</div>
+
+<div class="divFormats" *ngIf="comments != null" >
+  <div *ngFor=" let c of comments">
+    <p class="commentP">{{c.comment}}</p>
+    <div class="starFormat">
+      <app-star [rating]= "c.numberOfReviews != 0 ? c.star / c.numberOfReviews : 0">
+        <p> Star Component</p>
+      </app-star>
+    </div>
+    <div class="likeSection">
+      <span>{{c .like}}</span>
+      <li (click)="commenLike(c)" class="glyphicon glyphicon-heart" style="cursor: pointer"></li>
+      <span>{{c.dislike}}</span>
+      <li (click)="commenDislike(c)" class="glyphicon glyphicon-heart-empty" style="cursor: pointer"></li>
+    </div>
+    <div class="commentP">
+      <span> Rating </span>
+        <input #ratingInput type="number" (keyup.enter)="reviewsCount(c,ratingInput)" min="0" max="5" style="background-color: #333; color: white; width: 30px">
+
+    </div>
+
+    <hr/>
+    <br/>
+  </div>
+
+
+</div>
